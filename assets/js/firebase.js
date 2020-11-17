@@ -1,23 +1,25 @@
-/*        // Your web app's Firebase configuration
-  			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        var firebaseConfig = {
-          apiKey: "AIzaSyDgMXlmGPqvHLS55eqA17UkhWmvyZD4rW4",
-         authDomain: "pi-pirates-site.firebaseapp.com",
-         databaseURL: "https://pi-pirates-site.firebaseio.com",
-          projectId: "pi-pirates-site",
-         storageBucket: "pi-pirates-site.appspot.com",
-         messagingSenderId: "432101626526",
-         appId: "1:432101626526:web:558fdcd89bf6bfca30e18f",
-         measurementId: "G-MGEEJ1R6TK"
-       };
-     // Initialize Firebase
-       firebase.initializeApp(firebaseConfig);
-       firebase.analytics();
-       firebase.auth();
-  */  
-       
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+      apiKey: "AIzaSyBL4kIVmDW3LaGDzrMokG8FVJI4jk5ze9Y",
+      authDomain: "bridges-site.firebaseapp.com",
+      databaseURL: "https://bridges-site.firebaseio.com",
+      projectId: "bridges-site",
+      storageBucket: "bridges-site.appspot.com",
+      messagingSenderId: "207752526651",
+      appId: "1:207752526651:web:a4715f9c090a727c26551e",
+      measurementId: "G-R6GCN0T00S"
+};
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      firebase.auth();
 
-
+// =======================================================================
+//                     Login Button (onClick)
+// =======================================================================
+//  function takes text from email and password field and relay info
+//    to firebase for authentication. Firebase returns user object once
+//    authenticated or alerts user to error
+// =======================================================================
 $("#login-button").click(function(){
   var userEmail = document.getElementById("email").value;
   var userPassword = document.getElementById("password").value;
@@ -53,6 +55,12 @@ $("#login-button").click(function(){
  
 });
 
+// =======================================================================
+//                     Logout Button (onClick)
+// =======================================================================
+//  function calls proper firebase logout API functions. Alerts user
+//    of any errors and redirects to login page.
+// =======================================================================
 $("#logout-button").click(function(){
   //window.alert("Clicked");
   firebase.auth().signOut().then(function() {
@@ -66,7 +74,12 @@ $("#logout-button").click(function(){
   });
 });
 
-
+// =======================================================================
+//                     Change Password Button Button (onClick)
+// =======================================================================
+//  function uses Firebase API to send e-mailto reset password for 
+//    authentication. 
+// =======================================================================
 $("#change-password-button").click(function(){
   var auth = firebase.auth();
   var user = firebase.auth().currentUser;
@@ -88,6 +101,12 @@ $("#change-password-button").click(function(){
   });
 });
 
+// =======================================================================
+//                     Forgot Password Button Button (onClick)
+// =======================================================================
+//  function uses Firebase API to send email based on text in email
+//    field. 
+// =======================================================================
 $("#forgot-password-button").click(function(){
   var auth = firebase.auth();
   var emailAddress = document.getElementById("email").value;
