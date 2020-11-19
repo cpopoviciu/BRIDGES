@@ -3693,7 +3693,7 @@ input, select, textarea {
 	}
 
 		.banner.style2 .content {
-			padding: 5.25rem 5.25rem 3.25rem 5.25rem ;
+			padding: .2rem 5.25rem 1.25rem 1.25rem;			
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
