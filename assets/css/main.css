@@ -3693,7 +3693,7 @@ input, select, textarea {
 	}
 
 		.banner.style2 .content {
-			padding: .2rem 5.25rem 1.25rem 1.25rem;			
+			padding: 1.25rem 5.25rem 1.25rem 5.25rem;			
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
@@ -4460,6 +4460,174 @@ input, select, textarea {
 	.banner.style4.invert.android .image:after {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='64px' height='32px' viewBox='0 0 64 32' zoomAndPan='disable'%3E%3Cstyle%3Erect %7Bfill: transparent%3B stroke: white%3B stroke-width: 1px%3B %7D%3C/style%3E%3Crect rx='4' ry='4' x='6' y='4' width='52' height='24' vector-effect='non-scaling-stroke' /%3E%3C/svg%3E");
 	}
+
+	/* Banner (style6) */
+
+	.banner.style6 {
+		padding: 5.25rem 5.25rem 3.25rem 5.25rem ;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		background-color: inherit;
+		position: relative;
+		text-align: center;
+		overflow-x: hidden;
+	}
+
+		.banner.style6 .content {
+			padding: .2rem 5.25rem 1.25rem 1.25rem;			
+			position: relative;
+			width: 40rem;
+			max-width: 100%;
+			background-color: inherit;
+			border-radius: 0.5rem;
+			margin-bottom: 2rem;
+			z-index: 1;
+		}
+
+		.banner.style6 .image {
+			-moz-flex-grow: 0;
+			-webkit-flex-grow: 0;
+			-ms-flex-grow: 0;
+			flex-grow: 0;
+			-moz-flex-shrink: 0;
+			-webkit-flex-shrink: 0;
+			-ms-flex-shrink: 0;
+			flex-shrink: 0;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			border-radius: 0;
+		}
+
+			.banner.style6 .image img {
+				-moz-object-fit: cover;
+				-webkit-object-fit: cover;
+				-ms-object-fit: cover;
+				object-fit: cover;
+				-moz-object-position: center;
+				-webkit-object-position: center;
+				-ms-object-position: center;
+				object-position: center;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 0;
+			}
+
+		@media screen and (max-width: 1680px) {
+
+			.banner.style6 {
+				padding: 3.75rem 3.75rem 1.75rem 3.75rem ;
+			}
+
+				.banner.style6 .content {
+					padding: 3.75rem 3.75rem 1.75rem 3.75rem ;
+				}
+
+		}
+
+		@media screen and (max-width: 1280px) {
+
+			.banner.style6 {
+				padding: 4rem 3rem 2rem 3rem ;
+			}
+
+				.banner.style6 .content {
+					padding: 4rem 3rem 2rem 3rem ;
+				}
+
+		}
+
+		@media screen and (max-width: 980px) {
+
+			.banner.style6 {
+				padding: 3rem 3rem 1rem 3rem ;
+			}
+
+				.banner.style6 .content {
+					padding: 3.75rem 2.25rem 1.75rem 2.25rem ;
+				}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.banner.style6 {
+				padding: 2rem 2rem 0.1rem 2rem ;
+			}
+
+				.banner.style6 .content {
+					padding: 2.5rem 1.5rem 0.5rem 1.5rem ;
+				}
+
+		}
+
+		.banner.style6.fullscreen {
+			min-height: 100vh;
+		}
+
+		.banner.style6.orient-left {
+			-moz-justify-content: -moz-flex-start;
+			-webkit-justify-content: -webkit-flex-start;
+			-ms-justify-content: -ms-flex-start;
+			justify-content: flex-start;
+			padding-left: 0;
+		}
+
+			.banner.style6.orient-left .content {
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+
+		.banner.style6.orient-right {
+			-moz-justify-content: -moz-flex-end;
+			-webkit-justify-content: -webkit-flex-end;
+			-ms-justify-content: -ms-flex-end;
+			justify-content: flex-end;
+			padding-right: 0;
+		}
+
+			.banner.style6.orient-right .content {
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+		.banner.style6.content-align-left {
+			text-align: left;
+		}
+
+		.banner.style6.content-align-right {
+			text-align: right;
+		}
+
+		.banner.style6.image-position-left .image img {
+			-moz-object-position: left;
+			-webkit-object-position: left;
+			-ms-object-position: left;
+			object-position: left;
+		}
+
+		.banner.style6.image-position-right .image img {
+			-moz-object-position: right;
+			-webkit-object-position: right;
+			-ms-object-position: right;
+			object-position: right;
+		}
 
 /* Spotlight (transitions) */
 
