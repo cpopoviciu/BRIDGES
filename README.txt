@@ -3,7 +3,7 @@ Colby L. Sawyer
 
 Created based on a template from from HTML5Up. Information from the template developer is below.
 
-Part of the working research group Pi-Pirates, affiliated with 
+Part of the working research group BRIDGES, affiliated with 
 East Carolina Univeristy College of Engineering and Technology. 
 
 
