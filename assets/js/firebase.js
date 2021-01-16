@@ -56,6 +56,28 @@ $("#login-button").click(function(){
 });
 
 // =======================================================================
+//                     Add User Button (onClick)
+// =======================================================================
+//  function calls proper firebase add user function with entered email
+//    and password. Keeps current user logged in and redirects to dash.
+// =======================================================================
+$("#add-user-submit-button").click(function(){
+  console.log("Clicked");
+  //Prompt for Users Email and Password
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  //Create Account with Credentials
+  firebase.auth().createUserWithEmailAndPassword(email,password).catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+  //Alert User of Success
+  alert("User Created: Success");
+  window.location = "loggedin.html";
+
+});
+
+// =======================================================================
 //                     Logout Button (onClick)
 // =======================================================================
 //  function calls proper firebase logout API functions. Alerts user
