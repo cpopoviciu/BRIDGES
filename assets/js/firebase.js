@@ -155,8 +155,11 @@ var file;
 var fileName;
 var storageRef = storage.ref().child;
 var userFileLabel = document.getElementById("user-file-label");
+let btnStartUpload = document.getElementById("btnStartUpload");
+
 
 $("#btnStartUpload").click(function(e){
+  btnStartUpload.disabled = true;
   //Call Upload Popup
     let popover = document.createElement("div");
     popover.id = "uiavDefault";
@@ -247,6 +250,7 @@ $("#btnStartUpload").click(function(e){
         });
       });
       popover.remove();
+      btnStartUpload.disabled = false;
     });
 
     let btnCancel = document.createElement("button");
@@ -255,6 +259,7 @@ $("#btnStartUpload").click(function(e){
     btnCancel.textContent = "Cancel";
     btnCancel.addEventListener("click", e => {
       popover.remove();
+      btnStartUpload.disabled = false;
     });
 
     footer.appendChild(btnCancel);
