@@ -8800,7 +8800,17 @@ input, select, textarea {
 			#wrapper.divided > .invert:first-child {
 				box-shadow: none !important;
 			}
+
 #btnScrollToTop {
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	outline: none;
+	cursor: pointer;
+	z-index: 3;
+}
+
+#btnContactUs {
 	position: fixed;
 	right: 20px;
 	bottom: 20px;
