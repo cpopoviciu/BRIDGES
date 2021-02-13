@@ -8808,7 +8808,10 @@ input, select, textarea {
 	outline: none;
 	cursor: pointer;
 	z-index: 3;
+	opacity: 0;
 }
+
+
 
 #btnContactUs {
 	position: fixed;
