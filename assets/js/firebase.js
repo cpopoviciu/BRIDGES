@@ -374,7 +374,7 @@ window.onload = firebase.storage().ref('main/docs/').listAll().then(function(res
       });
 
       if(itemRef != null){
-        fileLabel.textContent = itemRef;
+        fileLabel.textContent = itemRef.name;
       }
 
       footer.appendChild(fileLabel);
