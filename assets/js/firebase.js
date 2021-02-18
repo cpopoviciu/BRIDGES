@@ -152,6 +152,11 @@ var storageRef = storage.ref().child;
 var userFileLabel = document.getElementById("user-file-label");
 let btnStartUpload = document.getElementById("btnStartUpload");
 
+// =======================================================================
+//                     Upload Button (onClick)
+// =======================================================================
+//  function processes file upload to Firestore DB
+// =======================================================================
 
 $("#btnStartUpload").click(function(e){
   btnStartUpload.disabled = true;
@@ -207,7 +212,7 @@ $("#btnStartUpload").click(function(e){
         //Display File Name
         fileSelectedLabel.textContent = "Selected: " + fileName;
         //Create Storage Ref
-        storageRef = firebase.storage().ref('main/' + file.name);
+        storageRef = firebase.storage().ref('main/docs/' + file.name);
         //Create Submit Button for UI
         footer.appendChild(btnSubmit);
       });
@@ -274,7 +279,7 @@ $("#btnStartUpload").click(function(e){
 //Retrieving List
 // Create a reference under which you want to list
 // Find all the prefixes and items.
-window.onload = firebase.storage().ref('main/').listAll().then(function(res) {
+window.onload = firebase.storage().ref('main/docs/').listAll().then(function(res) {
   res.prefixes.forEach(function(folderRef) {
     // All the prefixes under listRef.
     console.log(folderRef.name);
