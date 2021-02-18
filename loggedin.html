@@ -21,7 +21,7 @@
 	<body class="is-preload">
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
-                <section class="banner style2 orient-center content-align-center image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+                <section class="banner style2 orient-center content-align-center image-position-right fullscreen onload-image-fade-in onload-content-fade-right">	
 					<div class="content align-center">
 						<!--<div class= "align-left">
 							<p id= "user-name">Account Name: </p>
@@ -29,15 +29,20 @@
 						</div> -->
 						<h2>Welcome to the BRIDGES Intranet</h2>
 						<p> We are currently working to get more content added!</p>
+						<div id="userDisplay" class="align-center">
+							<div id="user" style="padding: 15px 10px 15px;">
+								<div class="align-left" style = "padding: 10px 5px 5px;">
+									<a id="logout-button" class="button small wide smooth-scroll-middle ">Logout</a>
+									<a id="change-password-button" class="button small wide smooth-scroll-middle ">Change Password</a>
+								</div>
+								<p id="emailDisplay">Email</p>
+							</div>
+						</div>
+						<!---
 						<div class="actions align-center">
 							<a id="logout-button" class="button small wide smooth-scroll-middle">Logout</a>
-							<a id="change-password-button" class="button small wide smooth-scroll-middle">Change Password</a>
-
-						</div>
-						<div class="align-center">
-							<a id = "fun-button" href = "fun.html" class="button small wide smooth-scroll-middle disabled">Have a little fun</a>				
-							<a id = "add-user-button" href = "newUser.html" class = "button small wide smooth-scroll-middle">Add a new user</a>
-						</div>
+							
+						</div> -->
 						<div class="content align-center">
 							<h2>Documents</h2>
 							<div id ="upload" class="actions align-center">
@@ -48,6 +53,10 @@
 								</ul>
 								<button id= "btnStartUpload" class="button small wide smooth-scroll-middle" >Upload File</button>
 							</div>
+						</div>
+						<div class="align-center">
+							<a id = "fun-button" href = "fun.html" class="button small wide smooth-scroll-middle disabled">Have a little fun</a>				
+							<a id = "add-user-button" href = "newUser.html" class = "button small wide smooth-scroll-middle">Add a new user</a>
 						</div>
                     </div>
                     <div class="image">
@@ -84,14 +93,13 @@
 				firebase.auth().onAuthStateChanged(function(user){
   					if(!user){
      					window.location.href = "login.html"
-  					} else{/*
-						var userName = document.getElementById("user-name");
-						var userEmail = document.getElementById("user-email");
-						var name = user.displayName;
+  					} else{
+						//var userName = document.getElementById("usernameDisplay");
+						var userEmail = document.getElementById("emailDisplay");
+						//var name = user.displayName;
 						var email = user.email;
-						userName.textContent = "Acount Name: " + name;
-						userEmail.textContent = "Acount Email: " + email;
-						*/
+						//userName.textContent = "Username: " + name;
+						userEmail.textContent =email;
 					  }
 				});
 			</script>

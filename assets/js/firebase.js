@@ -33,10 +33,6 @@ $("#login-button").click(function(){
     alert('Please enter a password.');
     return;
   }
-  /*if(!human){
-    alert('Please Verify that you are not a Robot');
-    return;
-  }*/
   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(function() {
     return firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
       // Handle Errors here.
@@ -51,8 +47,7 @@ $("#login-button").click(function(){
       }
       console.log(error);
     });
-  })
- 
+  })						
 });
 
 // =======================================================================

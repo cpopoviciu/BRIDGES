@@ -8821,3 +8821,16 @@ input, select, textarea {
 	cursor: pointer;
 	z-index: 3;
 }
+
+#userDisplay{
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	width:fit-content;
+	height:fit-content;
+	background-color: #ffffff;
+	border-radius: 0.5rem;
+	outline: none;
+	cursor: pointer;
+	z-index: 3;
+}
