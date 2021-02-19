@@ -91,6 +91,131 @@ $("#logout-button").click(function(){
   });
 });
 
+
+// =======================================================================
+//                     Update Profile Button (onClick)
+// =======================================================================
+//  function opens a popup showing editable profile features such as 
+//  username, email and password
+// =======================================================================
+$("#update-profile-button").click(function(){
+  console.log("Clicked");
+
+  let errorLog = document.createElement("p");
+  errorLog.id= "error-log";
+  errorLog.style.marginBottom = "5px";
+  errorLog.style.color = "#DC143C"
+
+  let btnChangePassword = document.createElement("button");
+  btnChangePassword.id = "change-password-button";
+  btnChangePassword.className = "button small wide smooth-scroll-middle";
+  btnChangePassword.textContent = "Change Password"
+  btnChangePassword.addEventListener("click", e => {
+    var auth = firebase.auth();
+    var user = firebase.auth().currentUser;
+    var emailAddress = "error@test.com";
+
+    if (user != null) {
+      user.providerData.forEach(function (profile) {
+        emailAddress = profile.email;
+        console.log("  Email: " + emailAddress);
+      });
+    }
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+      // Email sent.
+      errorLog.style.color = "#47D3E5";
+      errorLog.textContent = "Email sent"
+      //window.alert("EMAIL SENT TO RESET PASSWORD");
+    }).catch(function(error) {
+      // An error happened.
+      var errorMessage = error.message;
+      errorLog.textContent = errorMessage;
+      //alert(errorMessage);
+    });
+  });
+
+  let emailDisplay = document.getElementById("emailDisplay");
+
+
+  let emailDisplayEdit = document.createElement("input")
+  emailDisplayEdit.type = "email";
+  emailDisplayEdit.name = "email";
+  emailDisplayEdit.value = emailDisplay.textContent;
+  emailDisplayEdit.required = true;
+  let displayDiv  = document.getElementById("display-div");
+
+  let btnChangeEmail = document.createElement("button");
+  btnChangeEmail.id = "change-email-button";
+  btnChangeEmail.className = "button small wide smooth-scroll-middle";
+  btnChangeEmail.textContent = "Change Email"
+  btnChangeEmail.addEventListener("click", e => {
+    errorLog.textContent ="";
+    emailDisplay.remove()
+    displayDiv.append(emailDisplayEdit);
+    emailDisplayEdit.contentEditable = true;
+    btnChangeEmail.remove();
+
+    let btnUpdateEmail = document.createElement("button");
+    btnUpdateEmail.id = "submit-email-button";
+    btnUpdateEmail.className = "button small wide smooth-scroll-middle";
+    btnUpdateEmail.textContent = "Submit Email"
+    btnUpdateEmail.addEventListener("click", e =>{
+      let newEmail = emailDisplayEdit.value;
+      var auth = firebase.auth();
+      var user = firebase.auth().currentUser;
+      if(newEmail != emailDisplay.textContent){
+        user.updateEmail(newEmail).then(function(){
+            //Update Succesful
+            console.log("Update Successful: " + newEmail);
+            displayDiv.append(emailDisplay);
+            emailDisplayEdit.remove();
+            window.location.href = "loggedin.html";
+          }).catch(function(error){
+            //Error
+            errorLog.textContent = "ERROR: " + error.message;
+            console.log(error);
+          });
+        }else{
+          errorLog.textContent = "No change found";
+        }
+      }); 
+    fieldsDiv.append(btnUpdateEmail);
+  });
+
+  let fieldsDiv = document.getElementById("fields-div");
+  fieldsDiv.append(btnChangePassword);
+  fieldsDiv.append(btnChangeEmail)
+
+  let btnUpdateProfile = document.getElementById("update-profile-button");
+  btnUpdateProfile.remove();
+
+  let btnCancel = document.createElement("button");
+  btnCancel.id = "cancel-profile-update-button";
+  btnCancel.className = "button small wide smooth-scroll-middle";
+  btnCancel.textContent = "Cancel";
+  btnCancel.addEventListener("click", e => {
+      updateDiv.append(btnUpdateProfile);
+      btnCancel.remove();
+      btnChangeEmail.remove();
+      btnChangePassword.remove();
+      emailDisplayEdit.remove();
+      displayDiv.append(emailDisplay);
+      let btnSubmitEmail = document.getElementById("submit-email-button");
+      if(btnSubmitEmail != null){
+        btnSubmitEmail.remove();
+      }
+      errorLog.remove();
+    });
+
+    let erorrDiv = document.getElementById("error-div");
+    erorrDiv.append(errorLog);
+
+    let updateDiv = document.getElementById("update-div");
+    updateDiv.append(btnCancel);
+
+
+});
+
 // =======================================================================
 //                     Change Password Button Button (onClick)
 // =======================================================================
@@ -98,24 +223,7 @@ $("#logout-button").click(function(){
 //    authentication. 
 // =======================================================================
 $("#change-password-button").click(function(){
-  var auth = firebase.auth();
-  var user = firebase.auth().currentUser;
-  var emailAddress = "error@test.com";
-
-  if (user != null) {
-    user.providerData.forEach(function (profile) {
-      emailAddress = profile.email;
-      console.log("  Email: " + emailAddress);
-    });
-  }
-  auth.sendPasswordResetEmail(emailAddress).then(function() {
-    // Email sent.
-    window.alert("EMAIL SENT TO RESET PASSWORD");
-  }).catch(function(error) {
-    // An error happened.
-    var errorMessage = error.message;
-    alert(errorMessage);
-  });
+  
 });
 
 // =======================================================================

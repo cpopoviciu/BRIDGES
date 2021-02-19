@@ -8827,6 +8827,7 @@ input, select, textarea {
 	right: 20px;
 	top: 20px;
 	width:fit-content;
+	min-width: 300px;
 	height:fit-content;
 	background-color: #ffffff;
 	border-radius: 0.5rem;
