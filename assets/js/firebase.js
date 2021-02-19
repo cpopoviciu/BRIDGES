@@ -135,7 +135,13 @@ $("#update-profile-button").click(function(){
   });
 
   let emailDisplay = document.getElementById("emailDisplay");
-  let emailDisplayEdit = emailDisplay.cloneNode(true);
+
+
+  let emailDisplayEdit = document.createElement("input")
+  emailDisplayEdit.type = "email";
+  emailDisplayEdit.name = "email";
+  emailDisplayEdit.value = emailDisplay.textContent;
+  emailDisplayEdit.required = true;
   let displayDiv  = document.getElementById("display-div");
 
   let btnChangeEmail = document.createElement("button");
@@ -148,24 +154,31 @@ $("#update-profile-button").click(function(){
     displayDiv.append(emailDisplayEdit);
     emailDisplayEdit.contentEditable = true;
     btnChangeEmail.remove();
-    
+
     let btnUpdateEmail = document.createElement("button");
     btnUpdateEmail.id = "submit-email-button";
     btnUpdateEmail.className = "button small wide smooth-scroll-middle";
     btnUpdateEmail.textContent = "Submit Email"
     btnUpdateEmail.addEventListener("click", e =>{
-      let newEmail = emailDisplayEdit.textContent;
+      let newEmail = emailDisplayEdit.value;
       var auth = firebase.auth();
       var user = firebase.auth().currentUser;
-      user.updateEmail(newEmail).then(function(){
-          //Update Succesful
-          console.log("Update Successful: " + newEmail);
-        }).catch(function(error){
-          //Error
-          errorLog.textContent = "ERROR: " + error.message;
-          console.log(error);
-        });
-    }); 
+      if(newEmail != emailDisplay.textContent){
+        user.updateEmail(newEmail).then(function(){
+            //Update Succesful
+            console.log("Update Successful: " + newEmail);
+            displayDiv.append(emailDisplay);
+            emailDisplayEdit.remove();
+            window.location.href = "loggedin.html";
+          }).catch(function(error){
+            //Error
+            errorLog.textContent = "ERROR: " + error.message;
+            console.log(error);
+          });
+        }else{
+          errorLog.textContent = "No change found";
+        }
+      }); 
     fieldsDiv.append(btnUpdateEmail);
   });
 
