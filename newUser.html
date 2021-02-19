@@ -42,9 +42,12 @@
 										</div>
 									    <div class="actions align-center">
 											<p></p>
-											<a id="add-user-submit-button" class="button big wide smooth-scroll-middle">Submit</a> 
+											<ul class = "actions stacked">
+												<li><a id="add-user-submit-button" class="button big wide smooth-scroll-middle">Submit</a></li>
+												<li><a id="add-user-to-ui" onClick = "addNewMember()" class = "button big wide smooth-scroll-middle">Add Member to Homepage</a></li>
+											</ul>
+											<p id="console-out"></p>
 										</div>
-										
                                     </div>
                                     </form>
                                 </div>
@@ -79,6 +82,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/firebase.js"></script>
+			<script src="assets/js/contributor.js"></script>
 
 		<!-- Note: Only needed for demo purposes. Delete for production sites. -->
 			<script src="assets/js/demo.js"></script>
